@@ -1,8 +1,8 @@
 require 'parsel'
 require 'twilio-rb'
 Twilio::Config.setup \
-:account_sid => "ACe25512cbd45623b6685149760e21ef8d",
-:auth_token => "9e872a182edb3356c2943bfe78c9644e"
+:account_sid => "",
+:auth_token => ""
 
 def cls
   system "cls"
@@ -45,7 +45,7 @@ class Authorised
   def initialize
     puts "Sending Verification Code"
     begin
-      Twilio::SMS.create :to => '+61439472066', :from => '+61451562164',
+      Twilio::SMS.create :to => '', :from => '',
       :body => 'Verification Code - 0435'
     end
     puts "Input Verification Code:\n"
@@ -75,16 +75,16 @@ class Unknown
   def initialize
     puts "Access Restricted"
     begin
-      Twilio::SMS.create :to => '+61439472066', :from => '+61451562164',
+      Twilio::SMS.create :to => '', :from => '',
       :body => 'ALERT! There is unauthorised access on your accounts.'
     end
   end
 end
 puts "Enter Identity"
 beginning_input = $stdin.gets.chomp.to_s.capitalize
-if beginning_input == "Chris"
+if beginning_input == ""
   $user = Authorised.new
-elsif beginning_input == "Travis"
+elsif beginning_input == ""
   $user = Authorised.new
 elsif beginning_input == "Dog"
   puts "Edison says Woof!"
