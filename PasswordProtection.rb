@@ -45,12 +45,15 @@ class Authorised
   def initialize
     puts "Sending Verification Code"
     begin
+      prng = Random.new
+      v_code = prng.rand(999...10000)
+      $verification_code = v_code
       Twilio::SMS.create :to => '', :from => '',
-      :body => 'Verification Code - 0435'
+      :body => "Verification Code - #{$verification code}"
     end
     puts "Input Verification Code:\n"
-    verification_code = $stdin.gets.chomp.to_s
-    if verification_code == "0435"
+    $user_verification_code = $stdin.gets.chomp.to_s
+    if $user_verification_code == $verification_code
       $user = parent_start
     else
       puts "Invalid Verification Code"
