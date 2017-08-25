@@ -3,7 +3,7 @@ require 'twilio-rb'
 Twilio::Config.setup \
 :account_sid => "",
 :auth_token => ""
-
+.
 def cls
   system "cls"
 end
