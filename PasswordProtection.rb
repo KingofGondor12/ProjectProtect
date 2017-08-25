@@ -1,11 +1,17 @@
 require 'parsel'
 require 'twilio-rb'
+require 'os'
 Twilio::Config.setup \
 :account_sid => "",
 :auth_token => ""
 
 def cls
-  system "cls"
+  OS.windows?
+  if true
+    system "cls"
+  if false
+    OS.mac?
+    system "clear"
 end
 
 def encrypt
