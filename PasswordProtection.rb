@@ -9,7 +9,7 @@ def cls
   OS.windows?
   if true
     system "cls"
-  if false
+  elsif false
     OS.mac?
     system "clear"
 end
